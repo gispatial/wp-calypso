@@ -120,6 +120,10 @@ const TemplateSelectorPreview = ( { blocks, viewportWidth, title } ) => {
 		'block-editor' // needed to enable Core classes that rely on this being in the cascade
 	);
 
+	const blockPreview = (
+		<BlockPreview key={ recompute } blocks={ blocks } viewportWidth={ previewViewport } />
+	);
+
 	return (
 		/* eslint-disable wpcalypso/jsx-classname-namespace */
 		<div className={ blockEditorRequiredClasses }>
@@ -127,17 +131,19 @@ const TemplateSelectorPreview = ( { blocks, viewportWidth, title } ) => {
 				<div ref={ ref } className="edit-post-visual-editor">
 					<div className="editor-styles-wrapper">
 						<div className="editor-writing-flow">
-							<PreviewTemplateTitle title={ title } scale={ titleTransform.scale } />
-							<div
-								className="template-selector-preview__offset-correction"
-								style={ { top: titleTransform.offset } }
-							>
-								<BlockPreview
-									key={ recompute }
-									blocks={ blocks }
-									viewportWidth={ previewViewport }
-								/>
-							</div>
+							{ title ? (
+								<>
+									<PreviewTemplateTitle title={ title } scale={ titleTransform.scale } />
+									<div
+										className="template-selector-preview__offset-correction"
+										style={ { top: titleTransform.offset } }
+									>
+										{ blockPreview }
+									</div>
+								</>
+							) : (
+								blockPreview
+							) }
 						</div>
 					</div>
 				</div>

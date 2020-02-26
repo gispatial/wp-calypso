@@ -25,6 +25,7 @@ const {
 	screenAction,
 	theme,
 	isFrontPage,
+	hideFrontPageTitle,
 } = window.starterPageTemplatesConfig;
 
 if ( tracksUserData ) {
@@ -38,6 +39,7 @@ if ( screenAction === 'add' ) {
 			return (
 				<PageTemplatesPlugin
 					isFrontPage={ isFrontPage }
+					hideFrontPageTitle={ hideFrontPageTitle }
 					segment={ segment }
 					shouldPrefetchAssets={ false }
 					templates={ templates }

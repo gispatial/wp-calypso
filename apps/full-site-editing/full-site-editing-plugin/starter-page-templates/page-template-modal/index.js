@@ -376,7 +376,9 @@ class PageTemplateModal extends Component {
 							<TemplateSelectorPreview
 								blocks={ this.getBlocksByTemplateSlug( previewedTemplate ) }
 								viewportWidth={ 960 }
-								title={ this.getTitleByTemplateSlug( previewedTemplate ) }
+								title={
+									! this.props.hideFrontPageTitle && this.getTitleByTemplateSlug( previewedTemplate )
+								}
 							/>
 						</>
 					) }
