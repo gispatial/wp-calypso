@@ -24,8 +24,6 @@ import CreateYourAccountPage from '../lib/pages/signup/create-your-account-page.
 import CheckOutPage from '../lib/pages/signup/checkout-page';
 import ImportFromURLPage from '../lib/pages/signup/import-from-url-page';
 import SiteTypePage from '../lib/pages/signup/site-type-page';
-import SiteTopicPage from '../lib/pages/signup/site-topic-page';
-import SiteTitlePage from '../lib/pages/signup/site-title-page';
 import LoginPage from '../lib/pages/login-page';
 import MagicLoginPage from '../lib/pages/magic-login-page';
 import ReaderPage from '../lib/pages/reader-page';
@@ -104,23 +102,6 @@ describe( `[${ host }] Sign Up  (${ screenSize }, ${ locale })`, function() {
 				blogName,
 				passwordForTestAccounts
 			);
-		} );
-
-		step( 'Can see the "Site Type" page, and enter some site information', async function() {
-			const siteTypePage = await SiteTypePage.Expect( driver );
-			return await siteTypePage.selectBusinessType();
-		} );
-
-		step( 'Can see the "Site Topic" page, and enter the site topic', async function() {
-			const siteTopicPage = await SiteTopicPage.Expect( driver );
-			await siteTopicPage.enterSiteTopic( 'Tech Blog' );
-			return await siteTopicPage.submitForm();
-		} );
-
-		step( 'Can see the "Site title" page, and enter the site title', async function() {
-			const siteTitlePage = await SiteTitlePage.Expect( driver );
-			await siteTitlePage.enterSiteTitle( blogName );
-			return await siteTitlePage.submitForm();
 		} );
 
 		step(
@@ -223,23 +204,6 @@ describe( `[${ host }] Sign Up  (${ screenSize }, ${ locale })`, function() {
 				blogName,
 				passwordForTestAccounts
 			);
-		} );
-
-		step( 'Can see the "Site Type" page, and enter some site information', async function() {
-			const siteTypePage = await SiteTypePage.Expect( driver );
-			return await siteTypePage.selectBusinessType();
-		} );
-
-		step( 'Can see the "Site Topic" page, and enter the site topic', async function() {
-			const siteTopicPage = await SiteTopicPage.Expect( driver );
-			await siteTopicPage.enterSiteTopic( 'Tech Blog' );
-			return await siteTopicPage.submitForm();
-		} );
-
-		step( 'Can see the "Site title" page, and enter the site title', async function() {
-			const siteTitlePage = await SiteTitlePage.Expect( driver );
-			await siteTitlePage.enterSiteTitle( blogName );
-			return await siteTitlePage.submitForm();
 		} );
 
 		step(
@@ -425,23 +389,6 @@ describe( `[${ host }] Sign Up  (${ screenSize }, ${ locale })`, function() {
 			);
 		} );
 
-		step( 'Can see the "Site Type" page, and enter some site information', async function() {
-			const siteTypePage = await SiteTypePage.Expect( driver );
-			return await siteTypePage.selectProfessionalType();
-		} );
-
-		step( 'Can see the "Site Topic" page, and enter the site topic', async function() {
-			const siteTopicPage = await SiteTopicPage.Expect( driver );
-			await siteTopicPage.enterSiteTopic( 'Tech Blog' );
-			return await siteTopicPage.submitForm();
-		} );
-
-		step( 'Can see the "Site title" page, and enter the site title', async function() {
-			const siteTitlePage = await SiteTitlePage.Expect( driver );
-			await siteTitlePage.enterSiteTitle( blogName );
-			return await siteTitlePage.submitForm();
-		} );
-
 		step( 'Can then see the domains page ', async function() {
 			const findADomainComponent = await FindADomainComponent.Expect( driver );
 			const displayed = await findADomainComponent.displayed();
@@ -581,23 +528,6 @@ describe( `[${ host }] Sign Up  (${ screenSize }, ${ locale })`, function() {
 			);
 		} );
 
-		step( 'Can see the "Site Type" page, and enter some site information', async function() {
-			const siteTypePage = await SiteTypePage.Expect( driver );
-			return await siteTypePage.selectBlogType();
-		} );
-
-		step( 'Can see the "Site Topic" page, and enter the site topic', async function() {
-			const siteTopicPage = await SiteTopicPage.Expect( driver );
-			await siteTopicPage.enterSiteTopic( 'Tech Blog' );
-			return await siteTopicPage.submitForm();
-		} );
-
-		step( 'Can see the "Site title" page, and enter the site title', async function() {
-			const siteTitlePage = await SiteTitlePage.Expect( driver );
-			await siteTitlePage.enterSiteTitle( blogName );
-			return await siteTitlePage.submitForm();
-		} );
-
 		step(
 			'Can then see the domains page and can search for a blog name, can see and select a free WordPress.com blog address in results',
 			async function() {
@@ -701,23 +631,6 @@ describe( `[${ host }] Sign Up  (${ screenSize }, ${ locale })`, function() {
 				blogName,
 				passwordForTestAccounts
 			);
-		} );
-
-		step( 'Can see the "Site Type" page, and enter some site information', async function() {
-			const siteTypePage = await SiteTypePage.Expect( driver );
-			return await siteTypePage.selectBlogType();
-		} );
-
-		step( 'Can see the "Site Topic" page, and enter the site topic', async function() {
-			const siteTopicPage = await SiteTopicPage.Expect( driver );
-			await siteTopicPage.enterSiteTopic( 'Tech Blog' );
-			return await siteTopicPage.submitForm();
-		} );
-
-		step( 'Can see the "Site title" page, and enter the site title', async function() {
-			const siteTitlePage = await SiteTitlePage.Expect( driver );
-			await siteTitlePage.enterSiteTitle( blogName );
-			return await siteTitlePage.submitForm();
 		} );
 
 		step(
@@ -1044,23 +957,6 @@ describe( `[${ host }] Sign Up  (${ screenSize }, ${ locale })`, function() {
 				await stepWrapperComponent.goBack();
 			}
 		);
-
-		step( 'Can see the "Site Type" page, and enter some site information', async function() {
-			const siteTypePage = await SiteTypePage.Expect( driver );
-			return await siteTypePage.selectBusinessType();
-		} );
-
-		step( 'Can see the "Site Topic" page, and enter the site topic', async function() {
-			const siteTopicPage = await SiteTopicPage.Expect( driver );
-			await siteTopicPage.enterSiteTopic( 'Tech Blog' );
-			return await siteTopicPage.submitForm();
-		} );
-
-		step( 'Can see the "Site title" page, and enter the site title', async function() {
-			const siteTitlePage = await SiteTitlePage.Expect( driver );
-			await siteTitlePage.enterSiteTitle( siteName );
-			return await siteTitlePage.submitForm();
-		} );
 
 		step(
 			'Can then see the domains page, and can search for a blog name, can see and select a paid .live address in results ',
@@ -1414,17 +1310,6 @@ describe( `[${ host }] Sign Up  (${ screenSize }, ${ locale })`, function() {
 			);
 		} );
 
-		step( 'Can see the "Site Type" page, and enter some site information', async function() {
-			const siteTypePage = await SiteTypePage.Expect( driver );
-			return await siteTypePage.selectBlogType();
-		} );
-
-		step( 'Can see the "Site title" page, and enter the site title', async function() {
-			const siteTitlePage = await SiteTitlePage.Expect( driver );
-			await siteTitlePage.enterSiteTitle( blogName );
-			return await siteTitlePage.submitForm();
-		} );
-
 		step(
 			'Can then see the domains page, and Can search for a blog name, can see and select a free .art.blog address in the results',
 			async function() {
@@ -1518,23 +1403,6 @@ describe( `[${ host }] Sign Up  (${ screenSize }, ${ locale })`, function() {
 				return await noSitesComponent.createSite();
 			}
 		);
-
-		step( 'Can see the "Site Type" page, and enter some site information', async function() {
-			const siteTypePage = await SiteTypePage.Expect( driver );
-			return await siteTypePage.selectBlogType();
-		} );
-
-		step( 'Can see the "Site Topic" page, and enter the site topic', async function() {
-			const siteTopicPage = await SiteTopicPage.Expect( driver );
-			await siteTopicPage.enterSiteTopic( 'Tech Blog' );
-			return await siteTopicPage.submitForm();
-		} );
-
-		step( 'Can see the "Site title" page, and enter the site title', async function() {
-			const siteTitlePage = await SiteTitlePage.Expect( driver );
-			await siteTitlePage.enterSiteTitle( blogName );
-			return await siteTitlePage.submitForm();
-		} );
 
 		step(
 			'Can then see the domains page, and Can search for a blog name, can see and select a free .wordpress address in the results',
@@ -1808,23 +1676,6 @@ describe( `[${ host }] Sign Up  (${ screenSize }, ${ locale })`, function() {
 		step( 'Can see passwordless Start page and enter an email', async function() {
 			const createYourAccountPage = await CreateYourAccountPage.Expect( driver );
 			return await createYourAccountPage.enterEmailAndSubmit( emailAddress );
-		} );
-
-		step( 'Can see the "Site Type" page, and enter some site information', async function() {
-			const siteTypePage = await SiteTypePage.Expect( driver );
-			return await siteTypePage.selectBusinessType();
-		} );
-
-		step( 'Can see the "Site Topic" page, and enter the site topic', async function() {
-			const siteTopicPage = await SiteTopicPage.Expect( driver );
-			await siteTopicPage.enterSiteTopic( 'Tech Blog' );
-			return await siteTopicPage.submitForm();
-		} );
-
-		step( 'Can see the "Site title" page, and enter the site title', async function() {
-			const siteTitlePage = await SiteTitlePage.Expect( driver );
-			await siteTitlePage.enterSiteTitle( blogName );
-			return await siteTitlePage.submitForm();
 		} );
 
 		step(
