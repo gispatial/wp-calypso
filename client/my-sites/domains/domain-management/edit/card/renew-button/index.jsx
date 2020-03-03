@@ -29,6 +29,7 @@ class RenewButton extends React.Component {
 		subscriptionId: PropTypes.number,
 		redemptionProduct: PropTypes.object,
 		reactivate: PropTypes.bool,
+		customLabel: PropTypes.string,
 	};
 
 	handleRenew = () => {
@@ -36,7 +37,14 @@ class RenewButton extends React.Component {
 	};
 
 	render() {
-		const { purchase, selectedSite, redemptionProduct, reactivate } = this.props;
+		const {
+			translate,
+			purchase,
+			selectedSite,
+			redemptionProduct,
+			reactivate,
+			customLabel,
+		} = this.props;
 
 		let formattedPrice = '...';
 		let loading = true;
@@ -50,6 +58,18 @@ class RenewButton extends React.Component {
 		}
 
 		const buttonClasses = classNames( 'renew-button', { 'is-loading': loading } );
+		let buttonLabel = translate( 'Renew for {{strong}}%(price)s{{/strong}}', {
+			components: { strong: <strong /> },
+			args: { price: formattedPrice },
+		} );
+		if ( reactivate ) {
+			buttonLabel = translate( 'Reactivate for {{strong}}%(price)s{{/strong}}', {
+				components: { strong: <strong /> },
+				args: { price: formattedPrice },
+			} );
+		} else if ( customLabel ) {
+			buttonLabel = customLabel;
+		}
 
 		return (
 			<React.Fragment>
@@ -61,15 +81,7 @@ class RenewButton extends React.Component {
 					className={ buttonClasses }
 					onClick={ this.handleRenew }
 				>
-					{ reactivate
-						? this.props.translate( 'Reactivate for {{strong}}%(price)s{{/strong}}', {
-								components: { strong: <strong /> },
-								args: { price: formattedPrice },
-						  } )
-						: this.props.translate( 'Renew for {{strong}}%(price)s{{/strong}}', {
-								components: { strong: <strong /> },
-								args: { price: formattedPrice },
-						  } ) }
+					{ buttonLabel }
 				</Button>
 			</React.Fragment>
 		);
