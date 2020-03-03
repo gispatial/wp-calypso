@@ -12,3 +12,4 @@ export const getNewUser = ( state: State ) => state.newUser.data;
 export const getNewUserError = ( state: State ) => state.newUser.error;
 export const isFetchingNewUser = ( state: State ) => state.newUser.isFetching;
 export const isNewUser = ( state: State ) => !! state.newUser.data;
+export const shouldShowPasswordField = ( state: State ) => state.isPasswordless === false;

@@ -64,13 +64,23 @@ const isFetchingNewUser: Reducer< boolean | undefined, Action > = ( state = fals
 	return state;
 };
 
+const isPasswordless: Reducer< boolean | undefined, Action > = ( state = false, action ) => {
+	console.log( 'action:', action.type );
+	switch ( action.type ) {
+		case 'RECIEVE_ACCOUNT_TYPE':
+			console.log( 'got account type', action );
+			return action.response.passwordless;
+	}
+	return state;
+};
+
 const newUser = combineReducers( {
 	data: newUserData,
 	error: newUserError,
 	isFetching: isFetchingNewUser,
 } );
 
-const reducer = combineReducers( { currentUser, newUser } );
+const reducer = combineReducers( { currentUser, isPasswordless, newUser } );
 
 export type State = ReturnType< typeof reducer >;
 

@@ -170,6 +170,7 @@ export class PasswordlessStep extends Component {
 
 	renderVerificationForm() {
 		return (
+			<p>Foooo</p>
 			<LoggedOutForm onSubmit={ this.verifyUser } noValidate>
 				{ this.renderNotice() }
 				<ValidationFieldset errorMessages={ this.state.errorMessages }>
@@ -199,6 +200,7 @@ export class PasswordlessStep extends Component {
 
 	renderSignupForm() {
 		return (
+			<p>PLANSONAOENOM</p>
 			<LoggedOutForm onSubmit={ this.createUser } noValidate>
 				{ this.renderNotice() }
 				<ValidationFieldset errorMessages={ this.state.errorMessages }>
