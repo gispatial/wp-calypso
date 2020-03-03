@@ -62,20 +62,3 @@ export interface CreateAccountParams {
 export interface CreateAccountAction extends Action {
 	params?: CreateAccountParams;
 }
-
-export interface GetAccountTypeParams {
-	usernameOrEmail: string;
-}
-
-export interface GetAccountTypeAction extends Action {
-	params?: GetAccountTypeParams;
-}
-
-export interface GetAccountTypeSuccessResponse {
-	email_verified: boolean;
-	passwordless: boolean;
-}
-
-export interface GetAccountTypeError {}
-
-export type GetAccountTypeResponse = GetAccountTypeSuccessResponse | GetAccountTypeError;

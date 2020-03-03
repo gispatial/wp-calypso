@@ -13,7 +13,6 @@ export const Step = {
 	DesignSelection: 'design',
 	PageSelection: 'pages',
 	Signup: 'signup',
-	Login: 'login',
 	CreateSite: 'create-site',
 } as const;
 

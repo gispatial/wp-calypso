@@ -2,7 +2,7 @@
  * Internal dependencies
  */
 import { wpcomRequest, WpcomClientCredentials } from '../utils';
-import { CreateAccountAction, GetAccountTypeAction } from './types';
+import { CreateAccountAction } from './types';
 
 export default function createControls( clientCreds: WpcomClientCredentials ) {
 	return {
@@ -34,18 +34,6 @@ export default function createControls( clientCreds: WpcomClientCredentials ) {
 				apiVersion: '1.1',
 			} );
 			return currentUser;
-		},
-		FETCH_ACCOUNT_TYPE: async ( action: GetAccountTypeAction ) => {
-			const usernameOrEmail = encodeURIComponent(
-				action.params ? action.params.usernameOrEmail : ''
-			);
-
-			const accountType = await wpcomRequest( {
-				path: `/users/${ usernameOrEmail }/auth-options`,
-				method: 'GET',
-				apiVersion: '1.1',
-			} );
-			return accountType;
 		},
 	};
 }

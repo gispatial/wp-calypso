@@ -6,9 +6,6 @@ import {
 	CreateAccountParams,
 	NewUserErrorResponse,
 	NewUserSuccessResponse,
-	GetAccountTypeParams,
-	GetAccountTypeResponse,
-	GetAccountTypeError,
 } from './types';
 
 export const fetchCurrentUser = () => ( {
@@ -38,21 +35,6 @@ export const receiveNewUserFailed = ( error: NewUserErrorResponse ) => ( {
 	error,
 } );
 
-export const fetchAccountType = ( usernameOrEmail: string ) => ( {
-	type: 'FETCH_ACCOUNT_TYPE' as const,
-	params: { usernameOrEmail },
-} );
-
-export const recieveAccountType = ( response: GetAccountTypeResponse ) => ( {
-	type: 'RECIEVE_ACCOUNT_TYPE' as const,
-	response,
-} );
-
-export const recieveAccountTypeFailed = ( error: GetAccountTypeError ) => ( {
-	type: 'RECIEVE_ACCOUNT_TYPE_FAILED' as const,
-	error,
-} );
-
 export function* createAccount( params: CreateAccountParams ) {
 	yield fetchNewUser();
 	try {
@@ -66,20 +48,6 @@ export function* createAccount( params: CreateAccountParams ) {
 	}
 }
 
-export function* getAccountType( params: GetAccountTypeParams ) {
-	try {
-		console.log( 'getAccountType' );
-
-		const accountType = yield fetchAccountType( params.usernameOrEmail );
-		console.log( 'recieveAccountType' );
-		return recieveAccountType( accountType );
-	} catch ( err ) {
-		console.log( 'recieveAccountTypeFailed' );
-
-		return recieveAccountTypeFailed( err );
-	}
-}
-
 export type Action = ReturnType<
 	| typeof fetchCurrentUser
 	| typeof receiveCurrentUser
@@ -87,7 +55,4 @@ export type Action = ReturnType<
 	| typeof fetchNewUser
 	| typeof receiveNewUser
 	| typeof receiveNewUserFailed
-	| typeof fetchAccountType
-	| typeof recieveAccountType
-	| typeof recieveAccountTypeFailed
 >;
